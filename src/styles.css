@@ -1,0 +1,75 @@
+h1 {
+  color: blue;
+}
+div.card {
+  border-color: #37bcb3;
+  border-style: solid;
+  border-width: 2px;
+  padding: 10px;
+  margin: 30px;
+}
+div.card-two {
+  border-color: #5a6275;
+  margin: 30px 1px;
+}
+div.currentlocation {
+  background-color: #eeeff1;
+  color: #5b6375;
+  text-align: right;
+  font-weight: bolder;
+}
+p {
+  color: #5a6275;
+  text-align: left;
+  padding: 25px 0px;
+}
+div.nextdays {
+  color: #5a6275;
+  text-align: left;
+}
+div.maxmin {
+  color: #7cd3cd;
+  font-style: italic;
+}
+
+div.currentdegrees {
+  color: #ffb851;
+  font-weight: bolder;
+  font-size: 30px;
+  padding: 15px 0px;
+}
+a {
+  color: #ffb851;
+  font-weight: bolder;
+  font-size: 15px;
+  padding: 15px 0px;
+  text-decoration: underline;
+}
+div.currentwindrain {
+  color: #ffb851;
+  font-size: 15px;
+  padding: 20px 0px;
+}
+
+.fas,
+fa-cloud-sun,
+fa-sun {
+  color: #ffb851;
+  font-size: 60px;
+}
+.fa-cloud-showers-heavy {
+  color: #006ec5;
+  font-size: 50px;
+}
+button {
+  background-color: #37bcb3;
+  border-color: #5a6275;
+  border-style: solid;
+  border-width: 2px;
+  width: 100%;
+  border-radius: 4px;
+}
+button:hover {
+  background-color: #5a6275;
+  color: white;
+}
