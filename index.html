@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Parcel Sandbox</title>
+    <meta charset="UTF-8" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://kit.fontawesome.com/f9187a7e57.js" crossorigin="anonymous"></script>
+    <link href="src/styles.css" rel="stylesheet"/>
+  </head>
+
+  <body>
+    <div class="card">
+      <div class="card-body">
+        <span class="where">Where?</span>
+        <form id="location-form">
+        <input type="text" placeholder=" Introduce Location" id="location-input"/>
+        
+      </form>
+        <br />
+        <div class="card card-two">
+          <div class="card-body card-body-two">
+               
+              <br/>
+            <div class="currentlocation" id="current-location">Aveiro, Portugal</div>
+  
+            <container>
+              <div class="row">
+                <div class="col-sm"
+                ><p>
+                    Now:
+                  </p>
+              </div>
+              <div class="col-sm"
+                >
+                <div class="currentdegrees" id="temperature">
+                  12
+                </div>
+                <span class="units">
+                  <a  id="celsius-link">º C</a>
+                </span>
+                
+                    
+                
+              </div>
+              <div class="col-sm"
+                ><p>
+                    <i class="fas fa-cloud-sun"></i>
+                  </p>
+              </div>
+              <div class="col-sm"
+                ><div class="currentwindrain"> 
+                  | Rain 0%
+                    <br>
+                    |
+                    Wind 10km/h
+                </div>
+              </div>
+              <div class="col-sm"
+                >
+              </div>
+              <div class="col-sm"
+                >
+              </div><div class="col-sm"
+              >
+            </div>
+            <div class="col-sm"
+              >
+            </div>
+              </div>
+              
+              <div class="row">
+                  <div class="col-sm"
+                  ><p>
+                      Next days:
+                    </p>
+                </div>
+                <div class="col-sm"
+                  ><div class="nextdays">
+                      17-Jan
+                  </div><br>
+                  <i class="fas fa-cloud-showers-heavy"></i>
+                </div>
+                <div class="col-sm"
+                  ><div class="nextdays">
+                      18-Jan
+                  </div><br>
+                  <i class="fas fa-cloud-sun"></i>
+                </div>
+                <div class="col-sm"
+                  ><div class="nextdays">
+                      19-Jan
+                  </div><br>
+                  <i class="fas fa-cloud-showers-heavy"></i>
+                </div>
+                <div class="col-sm"
+                  ><div class="nextdays">
+                      20-Jan
+                  </div><br>
+                  <i class="fas fa-cloud-sun"></i>
+                </div>
+                <div class="col-sm"
+                  ><div class="nextdays">
+                      21-Jan
+                  </div><br><i class="fas fa-sun"></i>
+                </div>
+                <div class="col-sm"
+                >
+              </div>
+              <div class="col-sm"
+                >
+              </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm"
+                    >
+                        <div class="maxmin">Max | Min:</div>
+                      
+                  </div>
+                  <div class="col-sm"
+                    ><div class="maxmin">13ºC | 6ºC</div>
+                  </div>
+                  <div class="col-sm"
+                    ><div class="maxmin">15ºC | 7ºC</div>
+                  </div>
+                  <div class="col-sm"
+                    ><div class="maxmin">14ºC | 7ºC</div>
+                  </div>
+                  <div class="col-sm"
+                    ><div class="maxmin">16ºC | 7ºC</div>
+                  </div>
+                  <div class="col-sm"
+                    ><div class="maxmin">15ºC | 7ºC</div>
+                  </div>
+                  <div class="col-sm"
+                  >
+                </div>
+                <div class="col-sm"
+                  >
+                </div>
+                  </div>
+                </div>
+            </container>
+          </div>
+          <div><button id="go-home">Back to current location</button></div>                  </div>
+      </div>
+    </div>
+
+    
+  </body>
+  
+
+<script src="src/index.js"></script>
+</html>
