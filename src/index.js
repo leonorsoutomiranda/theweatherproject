@@ -42,17 +42,34 @@
 let now = new Date();
 let weekdays = now.getDay();
 let weekdayarray = [
-  "sunday",
-  "monday",
-  "tuesday",
-  "wednesday",
-  "thursday",
-  "friday",
-  "saturday",
-  "sunday"
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+  "Sunday"
 ];
 let hour = now.getHours();
 let minute = now.getMinutes();
+let day = now.getDate();
+let months = now.getMonth();
+let montharray = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December"
+];
+let month = montharray[months];
 let weekday = weekdayarray[weekdays];
 function zerominutes(minute) {
   return (minute < 10 ? "0" : "") + minute;
@@ -61,11 +78,13 @@ function zerohours(hour) {
   return (hour < 10 ? "0" : "") + hour;
 }
 function currentday(weekday, hour, minute) {
-  return `${weekday} ${zerohours(hour)}:${zerominutes(minute)}`;
+  return `${weekday}, ${month}-${day}, ${zerohours(hour)}:${zerominutes(
+    minute
+  )}`;
 }
 function displaycurrentday() {
   document.querySelector("#current-location").innerHTML =
-    "Aveiro, Portugal | " + currentday(weekday, hour, minute);
+    "Aveiro, Portugal | Last updated: " + currentday(weekday, hour, minute);
 }
 displaycurrentday();
 
@@ -87,6 +106,7 @@ function displaytemperature(response) {
 
 let searchform = document.querySelector("#location-form");
 searchform.addEventListener("submit", search);
+searchform.addEventListener("click", search);
 
 function showcurrentweather(position) {
   let lat = position.coords.latitude;
