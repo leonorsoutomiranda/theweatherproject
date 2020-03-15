@@ -39,6 +39,8 @@
 //);
 //}
 //W4 homework
+
+//Last updated
 let now = new Date();
 let weekdays = now.getDay();
 let weekdayarray = [
@@ -88,6 +90,7 @@ function displaycurrentday() {
 }
 displaycurrentday();
 
+//Search Location
 function search(event) {
   event.preventDefault();
   let searchinput = document.querySelector("#location-input");
@@ -98,16 +101,22 @@ function search(event) {
   let url = `https://api.openweathermap.org/data/2.5/weather?q=${cityinput}&appid=5d25e265a18f244a8bfebb37b4d7164b&&units=metric`;
   axios.get(url).then(displaytemperature);
 }
-
+//Display temperature
 function displaytemperature(response) {
-  let temperature = Math.round(response.data.main.temp);
-  document.querySelector("#temperature").innerHTML = temperature;
+  celsiusT = response.data.main.temp;
+  let wind = response.data.wind.speed;
+  let humidity = response.data.main.humidity;
+  let temperature = Math.round(celsiusT);
+  document.querySelector("#temperature").innerHTML = temperature + " º C";
+  document.querySelector("#wind").innerHTML = wind;
+  document.querySelector("#humidity").innerHTML = humidity;
 }
-
+//Search box
 let searchform = document.querySelector("#location-form");
 searchform.addEventListener("submit", search);
 searchform.addEventListener("click", search);
 
+//Display current temperature
 function showcurrentweather(position) {
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
@@ -120,12 +129,40 @@ function getCurrentPosition() {
 }
 
 function displaycurrentloctemperature(response) {
-  let temperature = Math.round(response.data.main.temp);
+  celsiusT = response.data.main.temp;
+  let wind = response.data.wind.speed;
+  let humidity = response.data.main.humidity;
+  let temperature = Math.round(celsiusT);
   let currentloc = response.data.name;
-  document.querySelector("#temperature").innerHTML = temperature;
+  document.querySelector("#temperature").innerHTML = temperature + " º C";
+  document.querySelector("#wind").innerHTML = wind;
+  document.querySelector("#humidity").innerHTML = humidity;
   document.querySelector("#current-location").innerHTML = `
   ${currentloc} | ${currentday(weekday, hour, minute)}`;
 }
 
 let currentlocbutton = document.querySelector("#go-home");
 currentlocbutton.addEventListener("click", getCurrentPosition);
+
+//Fahrenheit
+function displayFahr(event) {
+  event.preventDefault();
+  let fahr = (celsiusT * 9) / 5 + 32;
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(fahr) + "º F";
+}
+
+//Celsius
+function displayCelsius(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(celsiusT) + "º C";
+}
+
+let celsiusT = null;
+
+let fahrLink = document.querySelector("#f-link");
+fahrLink.addEventListener("click", displayFahr);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCelsius);

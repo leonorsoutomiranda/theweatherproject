@@ -17,6 +17,7 @@ div.currentlocation {
   color: #5b6375;
   text-align: right;
   font-weight: bolder;
+  text-transform: capitalize;
 }
 p {
   color: #5a6275;
