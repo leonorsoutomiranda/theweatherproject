@@ -175,6 +175,36 @@ function displaycurrentloctemperature(response) {
   document.querySelector("#humidity").innerHTML = humidity;
   document.querySelector("#current-location").innerHTML = `
   ${currentloc} | ${currentday(weekday, hour, minute)}`;
+  let myIcon = document.querySelector("#icon-today");
+  if (
+    response.data.weather[0].icon == "02d" ||
+    response.data.weather[0].icon == "02n" ||
+    response.data.weather[0].icon == "04d" ||
+    response.data.weather[0].icon == "04n" ||
+    response.data.weather[0].icon == "03d" ||
+    response.data.weather[0].icon == "03n"
+  ) {
+    myIcon.className = "fas fa-cloud-sun";
+  } else if (
+    response.data.weather[0].icon == "09d" ||
+    response.data.weather[0].icon == "09n" ||
+    response.data.weather[0].icon == "10d" ||
+    response.data.weather[0].icon == "10n"
+  ) {
+    myIcon.className = "fas fa-cloud-showers-heavy";
+  } else if (
+    response.data.weather[0].icon == "13d" ||
+    response.data.weather[0].icon == "13n"
+  ) {
+    myIcon.className = "fas fa-snowflake";
+  } else if (
+    response.data.weather[0].icon == "11d" ||
+    response.data.weather[0].icon == "11n"
+  ) {
+    myIcon.className = "fas fa-bolt";
+  } else {
+    myIcon.className = "fas fa-sun";
+  }
 }
 
 let currentlocbutton = document.querySelector("#go-home");
