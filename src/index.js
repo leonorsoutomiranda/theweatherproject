@@ -102,11 +102,47 @@ function search(event) {
   axios.get(url).then(displaytemperature);
 }
 //Display temperature
+//icon: "fas fa-cloud-sun" = 02d.png , 02n.png, 04d.png, 04n.png , 03d.png, 03n.png ;
+//icon: "fas fa-cloud-showers-heavy" = 09d.png , 09n.png, 10d.png, 10n.png;
+//icon: "fas fa-sun" = 01d.png , 01n.png;
+//icon: "far fa-snowflake" = 13d.png , 13n.png;
+//icon: "fas fa-bolt"=11d.png , 11n.png
 function displaytemperature(response) {
   celsiusT = response.data.main.temp;
   let wind = response.data.wind.speed;
   let humidity = response.data.main.humidity;
   let temperature = Math.round(celsiusT);
+  let myIcon = document.querySelector("#icon-today");
+  if (
+    response.data.weather[0].icon == "02d" ||
+    response.data.weather[0].icon == "02n" ||
+    response.data.weather[0].icon == "04d" ||
+    response.data.weather[0].icon == "04n" ||
+    response.data.weather[0].icon == "03d" ||
+    response.data.weather[0].icon == "03n"
+  ) {
+    myIcon.className = "fas fa-cloud-sun";
+  } else if (
+    response.data.weather[0].icon == "09d" ||
+    response.data.weather[0].icon == "09n" ||
+    response.data.weather[0].icon == "10d" ||
+    response.data.weather[0].icon == "10n"
+  ) {
+    myIcon.className = "fas fa-cloud-showers-heavy";
+  } else if (
+    response.data.weather[0].icon == "13d" ||
+    response.data.weather[0].icon == "13n"
+  ) {
+    myIcon.className = "fas fa-snowflake";
+  } else if (
+    response.data.weather[0].icon == "11d" ||
+    response.data.weather[0].icon == "11n"
+  ) {
+    myIcon.className = "fas fa-bolt";
+  } else {
+    myIcon.className = "fas fa-sun";
+  }
+
   document.querySelector("#temperature").innerHTML = temperature + " º C";
   document.querySelector("#wind").innerHTML = wind;
   document.querySelector("#humidity").innerHTML = humidity;
