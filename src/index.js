@@ -1,45 +1,3 @@
-//let weather = {
-//paris: {
-//temp: 19.7,
-//humidity: 80
-//},
-//tokyo: {
-//temp: 17.3,
-//humidity: 50
-//},
-//lisbon: {
-//temp: 30.2,
-//humidity: 20
-//},
-//"san francisco": {
-//temp: 20.9,
-//humidity: 100
-//},
-//moscow: {
-//temp: -5,
-//humidity: 20
-//}
-//};
-
-// write your code here
-//let city = prompt("Enter a city");
-//city = city.toLowerCase();
-
-//if (weather.hasOwnProperty(city)) {
-//let weathercelsius = Math.round(weather[city].temp);
-//let weatherkelvin = Math.round(weather[city].temp * 273.15);
-//alert(
-//`It is currently ${weathercelsius} °C (${weatherkelvin}°F) in ${city} with a humidity of ${
-//   weather[city].humidity
-//}%`
-//);
-//} else {
-//alert(
-//  "Sorry, we know the weather for this city, try going to https://www.google.com/search?q=weather+sydney"
-//);
-//}
-//W4 homework
-
 //Last updated
 let now = new Date();
 let weekdays = now.getDay();
@@ -86,7 +44,7 @@ function currentday(weekday, hour, minute) {
 }
 function displaycurrentday() {
   document.querySelector("#current-location").innerHTML =
-    "Aveiro, Portugal | Last updated: " + currentday(weekday, hour, minute);
+    "Last updated: " + currentday(weekday, hour, minute);
 }
 displaycurrentday();
 
@@ -124,6 +82,7 @@ function displaytemperature(response) {
   let wind = response.data.wind.speed;
   let humidity = response.data.main.humidity;
   let temperature = Math.round(celsiusT);
+  let description = response.data.weather[0].description;
   let myIcon = document.querySelector("#icon-today");
   if (
     response.data.weather[0].icon == "02d" ||
@@ -158,6 +117,7 @@ function displaytemperature(response) {
   document.querySelector("#temperature").innerHTML = temperature + " º C";
   document.querySelector("#wind").innerHTML = wind;
   document.querySelector("#humidity").innerHTML = humidity;
+  document.querySelector("#description-weather").innerHTML = description;
 }
 
 //Display forecast
@@ -234,11 +194,13 @@ function displaycurrentloctemperature(response) {
   celsiusT = response.data.main.temp;
   let wind = response.data.wind.speed;
   let humidity = response.data.main.humidity;
+  let description = response.data.weather[0].description;
   let temperature = Math.round(celsiusT);
   let currentloc = response.data.name;
   document.querySelector("#temperature").innerHTML = temperature + " º C";
   document.querySelector("#wind").innerHTML = wind;
   document.querySelector("#humidity").innerHTML = humidity;
+  document.querySelector("#description-weather").innerHTML = description;
   document.querySelector("#current-location").innerHTML = `
   ${currentloc} | ${currentday(weekday, hour, minute)}`;
   let myIcon = document.querySelector("#icon-today");

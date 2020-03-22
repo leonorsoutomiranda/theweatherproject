@@ -81,3 +81,6 @@ button:hover {
 .fa-search-location {
   font-size: 20px;
 }
+#description-weather {
+  text-transform: capitalize;
+}
