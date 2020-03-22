@@ -42,9 +42,10 @@ function currentday(weekday, hour, minute) {
     minute
   )}`;
 }
+let cityinput = "Lisboa";
 function displaycurrentday() {
   document.querySelector("#current-location").innerHTML =
-    "Last updated: " + currentday(weekday, hour, minute);
+    cityinput + " | Last updated: " + currentday(weekday, hour, minute);
 }
 displaycurrentday();
 
@@ -66,16 +67,23 @@ function formatHours(timestamp) {
 function search(event) {
   event.preventDefault();
   let searchinput = document.querySelector("#location-input");
-  let cityinput = searchinput.value;
+  cityinput = searchinput.value;
   document.querySelector("#current-location").innerHTML = `
     ${cityinput} | ${currentday(weekday, hour, minute)}`;
 
-  let url = `https://api.openweathermap.org/data/2.5/weather?q=${cityinput}&appid=5d25e265a18f244a8bfebb37b4d7164b&&units=metric`;
+  url = `https://api.openweathermap.org/data/2.5/weather?q=${cityinput}&appid=5d25e265a18f244a8bfebb37b4d7164b&&units=metric`;
   axios.get(url).then(displaytemperature);
 
   url = `https://api.openweathermap.org/data/2.5/forecast?q=${cityinput}&appid=5d25e265a18f244a8bfebb37b4d7164b&&units=metric`;
   axios.get(url).then(displayforecast);
 }
+
+let url = `https://api.openweathermap.org/data/2.5/weather?q=${cityinput}&appid=5d25e265a18f244a8bfebb37b4d7164b&&units=metric`;
+axios.get(url).then(displaytemperature);
+
+url = `https://api.openweathermap.org/data/2.5/forecast?q=${cityinput}&appid=5d25e265a18f244a8bfebb37b4d7164b&&units=metric`;
+axios.get(url).then(displayforecast);
+
 //Display temperature
 function displaytemperature(response) {
   celsiusT = response.data.main.temp;
